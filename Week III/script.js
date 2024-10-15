@@ -2,10 +2,10 @@ import * as THREE from 'three';
 import GSAP from 'gsap';
 
 const scene = new THREE.Scene();
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-const mesh = new THREE.Mesh(geometry, material);
-scene.add(mesh)
+const geometry = new THREE.SphereGeometry( 0.9, 32, 16 ); 
+const material = new THREE.MeshBasicMaterial( { color: 0xffff00 , wireframe:true } ); 
+const sphere = new THREE.Mesh( geometry, material ); scene.add( sphere );
+scene.add(sphere)
 const sizes = {
     width: 800,
     height: 600
@@ -14,15 +14,15 @@ const sizes = {
 // Camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
 camera.position.z = 3;
-camera.position.x = 1;
+camera.position.x = 0;
 scene.add(camera);
 
 
 //gsap
 GSAP.to(
-    mesh.position,{
+    sphere.position,{
         duration: 2,
-        x:2,
+        x:0,
         repeat:-1,
         yoyo:true
     }
@@ -44,6 +44,6 @@ function render(){
 
 
   //  mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.01;
+    sphere.rotation.y += 0.01;
     renderer.render(scene, camera)
 }
