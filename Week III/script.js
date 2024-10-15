@@ -35,15 +35,26 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(800, 600)
 document.getElementById("scene").appendChild(renderer.domElement);
 
+
+let previousTime = 0;
+
+
 renderer.setAnimationLoop(render)
 
 
 
+function render(time){
 
-function render(){
 
 
-  //  mesh.rotation.x += 0.01;
-    sphere.rotation.y += 0.01;
-    renderer.render(scene, camera)
+
+    const deltaTime = (time - previousTime) / 1000; // Convert time from milliseconds to seconds
+    previousTime = time;
+
+    // Rotate the sphere based on delta time
+    //sphere.rotation.x += 1 * deltaTime; // Rotate around X-axis
+    sphere.rotation.y += 1 * deltaTime; // Rotate around Y-axis
+
+    renderer.render(scene, camera);
+  
 }
