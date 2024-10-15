@@ -13,7 +13,7 @@ const box = new THREE.Mesh(geometry,material);
 scene.add(box);
 
 function randomInt(min,max){
-    return Math.random() * (max-min) + min;
+    return Math.random() * (max-min +1) + min;
 }
 
 for (var i = 0;i<1000;i++){
