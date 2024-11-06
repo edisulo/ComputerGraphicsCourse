@@ -9,7 +9,6 @@ const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#camp
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Added OrbitControls for interactive camera
 //const controls = new THREE.OrbitControls(camera, renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -60,7 +59,7 @@ const building3 = new THREE.Mesh(new THREE.BoxGeometry(2, 6, 2), buildingMateria
 building3.position.set(6, 3, -3); 
 scene.add(building3);
 
-// Add an animated object (sphere) using GSAP
+// Adding a sphere 
 const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
 const sphere = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), sphereMaterial);
 sphere.position.set(0, 0.5, -8);
@@ -76,7 +75,7 @@ scene.add(sphere);
 // });
 
 // Trying to move the sphere along the road in a cross movement
-gsap.timeline({ repeat: -2 })
+gsap.timeline({ repeat: -1 })
   .to(sphere.position, { z: 4, duration: 3, ease: "power1.inOut" }) // Move right
   .to(sphere.position, { x: 6, duration: 2, ease: "power1.inOut" }) // Move up
   .to(sphere.position, { x: -6, duration: 2, ease: "power1.inOut" }) // Move left
