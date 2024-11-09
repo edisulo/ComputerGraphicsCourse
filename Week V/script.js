@@ -4,8 +4,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
 
-const geometry = new THREE.BufferGeometry();
-const count = 50;
+const geometry = new THREE.SphereGeometry(1,1,1);
+const count = 100;
 const positionsArray = new Float32Array(count * 3 * 3);
 for (let i = 0; i < count * 3 * 3; i++) {
     positionsArray[i] = (Math.random() - 0.5) * 4;
@@ -13,10 +13,10 @@ for (let i = 0; i < count * 3 * 3; i++) {
 const positionsAttribute = new THREE.BufferAttribute(positionsArray, 3);
 geometry.setAttribute('position', positionsAttribute);
 
-const material = new THREE.MeshStandardMaterial({
-    color: 0xff0000,          
+const material = new THREE.MeshPhongMaterial({
+    color: 0x0000ff,          
     roughness: 0.5,
-    wireframe: true            
+    wireframe: false           
 });
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
@@ -46,11 +46,12 @@ window.addEventListener('resize', () => {
 });
 
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
-camera.position.z = 3;
+//camera.position.z = 3;
+camera.position.set(2,2,7);
 scene.add(camera);
 
 const controls = new OrbitControls(camera, document.body);
-controls.enableDamping = true;
+controls.enableDamping = false;
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(sizes.width, sizes.height);
@@ -61,6 +62,8 @@ const clock = new THREE.Clock();
 
 const tick = () => {
 
+    mesh.rotation.x +=0.01;
+    mesh.rotation.y +=0.01;
     controls.update();
 
     renderer.render(scene, camera);
