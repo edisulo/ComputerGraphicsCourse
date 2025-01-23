@@ -1,155 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Classroom</title>
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>3D Classroom</title>
+       <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
+
 <body>
 
+       <a-scene>
 
+              <a-entity universal-controls="fly: true; movementEasing: 15; movementAcceleration: 80;"></a-entity>
 
+              <a-assets>
+                     <a-asset-item id="deskchair" src="3dmodels/deskchair.glb"></a-asset-item>
+                     <a-asset-item id="desk" src="3dmodels/desk.glb"></a-asset-item>
+                     <a-asset-item id="profchair" src="3dmodels/profchair.glb"></a-asset-item>
+                     <a-asset-item id="door" src="3dmodels/door.glb"></a-asset-item>
+                     <a-asset-item id="window2" src="3dmodels/window2.glb"></a-asset-item>
+                     <a-asset-item id="whiteboard" src="3dmodels/whiteboard.glb"></a-asset-item>
+              </a-assets>
 
-    <a-scene>
+              <!-- Classroom walls -->
+              <a-box position="0 2 -5" src="textures/wall.png" rotation="0 0 0" color="#F0FFFF" width="10" height="5"
+                     depth="0.1">
+              </a-box>
 
-        <a-entity universal-controls="fly: true;
-        movementEasing: 15;
-        movementAcceleration: 80;"></a-entity>
+              <a-box position="0 0.5 5" src="textures/wall.png" rotation="0 0 0" color="#F0FFFF" width="10" height="1.9"
+                     depth="0.1"></a-box>
 
-        <a-assets>
-            <a-asset-item id="deskchair" src="3dmodels/deskchair.glb"></a-asset-item>
-            <a-asset-item id="desk" src="3dmodels/desk.glb"></a-asset-item>
-            <a-asset-item id="profchair" src="3dmodels/profchair.glb"></a-asset-item>
-            <a-asset-item id="door" src="3dmodels/door.glb"></a-asset-item>
+              <a-box position="0 4.3 5" src="textures/wall.png" rotation="0 0 0" color="#F0FFFF" width="10" height="0.5"
+                     depth="0.1">
+              </a-box>
 
-            <a-asset-item id="window2" src="3dmodels/window2.glb"></a-asset-item>
-            <a-asset-item id="whiteboard" src="3dmodels/whiteboard.glb"></a-asset-item>
+              <a-box position="4.47 2 5" src="textures/wall.png" rotation="0 0 0" color="#F0FFFF" width="0.95"
+                     height="4.9" depth="0.1">
+              </a-box>
 
+              <a-box position="-4.47 2 5" src="textures/wall.png" rotation="0 0 0" color="#F0FFFF" width="0.95"
+                     height="4.9" depth="0.1">
+              </a-box>
 
-        
+              <a-box position="0 2 5" src="textures/wall.png" rotation="0 0 0" color="#F0FFFF" width="4" height="4.9"
+                     depth="0.1">
+              </a-box>
 
-        </a-assets>
+              <a-box position="0 2 5" src="textures/wall.png" rotation="0 0 0" color="#F0FFFF" width="4" height="4.9"
+                     depth="0.1">
+              </a-box>
 
-        <!-- Classroom walls -->
-        <a-box position="0 2 -5"
-               src="textures/wall.png"
-               rotation="0 0 0" 
-               color="#F0FFFF" 
-               width="10" 
-               height="5" 
-               depth="0.1">
-        </a-box> 
+              <!-- Outside Texture       -->
+              <a-box position="0 2 5.1" src="textures/outside.png" rotation="0 0 0" color="#F0FFFF" width="10"
+                     height="5" depth="0.1">
+              </a-box>
 
-        <a-box position="0 0.5 5"
-               src="textures/wall.png" 
-               rotation="0 0 0" 
-               color="#F0FFFF"
-               width="10"
-               height="1.9"
-               depth="0.1">
-        </a-box>
+              <a-box position="-5 2 0" src="textures/wall.png" rotation="0 90 0" color="#F0FFFF" width="10" height="5"
+                     depth="0.001"></a-box>
+              <a-box position="5 2 0" src="textures/wall.png" rotation="0 90 0" color="#F0FFFF" width="10" height="5"
+                     depth="0.1"></a-box>
+              <a-box position="0 4.5 0" src="textures/wall.png" rotation="90 0 0" color="#F0FFFF" width="10" height="10"
+                     depth="0.1"></a-box>
+              <a-box position="0 0 0" rotation="90 0 0" color="#D3D3D3" width="10" height="10" depth="0.1"></a-box>
 
-        <a-box position="0 4.3 5"
-               src="textures/wall.png" 
-               rotation="0 0 0" 
-               color="#F0FFFF"
-               width="10"
-               height="0.5"
-               depth="0.1">
-        </a-box>  
+              <!-- Row - 1 -->
+              <a-gltf-model src="#deskchair" rotation="0 90 0" position="0 0 -3" scale="0.7 0.7 0.7"></a-gltf-model>
 
-<!-- The Sides -->
-     
- 
-<a-box position="4.47 2 5"
-src="textures/wall.png" 
-rotation="0 0 0" 
-color="#F0FFFF"
-width="0.95"
-height="4.9"
-depth="0.1">
-</a-box>  
+              <a-gltf-model src="#deskchair" rotation="0 90 0" position="0 0  -1" scale="0.7 0.7 0.7"></a-gltf-model>
 
+              <a-gltf-model src="#deskchair" rotation="0 90 0" position="0 0 1" scale="0.7 0.7 0.7"></a-gltf-model>
 
-<a-box position="-4.47 2 5"
-src="textures/wall.png" 
-rotation="0 0 0" 
-color="#F0FFFF"
-width="0.95"
-height="4.9"
-depth="0.1">
-</a-box>  
+              <a-gltf-model src="#deskchair" rotation="0 90 0" position="0 0 3" scale="0.7 0.7 0.7"></a-gltf-model>
 
+              <!-- Row - 2 -->
+              <a-gltf-model src="#deskchair" rotation="0 90 0" position="-2 0 -3" scale="0.7 0.7 0.7"></a-gltf-model>
 
+              <a-gltf-model src="#deskchair" rotation="0 90 0" position="-2 0  -1" scale="0.7 0.7 0.7"></a-gltf-model>
 
-        <a-box position="0 2 5"
-               src="textures/wall.png" 
-               rotation="0 0 0" 
-               color="#F0FFFF"
-               width="4"
-               height="4.9"
-               depth="0.1">
-        </a-box>  
+              <a-gltf-model src="#deskchair" rotation="0 90 0" position="-2 0 1" scale="0.7 0.7 0.7"></a-gltf-model>
 
+              <a-gltf-model src="#deskchair" rotation="0 90 0" position="-2 0 3" scale="0.7 0.7 0.7"></a-gltf-model>
 
+               <!-- Other 3D objects -->
+              <a-gltf-model src="#desk" rotation="0 90 0" position="3 0.7 -3" scale="0.5 0.5 0.5"></a-gltf-model>
+              <a-gltf-model src="#profchair" rotation="0 270 0" position="3.9 0.5 -3" scale="1 1 1"></a-gltf-model>
+              <a-gltf-model src="#door" rotation="0 270 0" position="-4.9 0 3" scale="0.01 0.01 0.01"></a-gltf-model>
+              <a-gltf-model src="#whiteboard" rotation="0 -90 0" position="4.84 1 0" scale="3 3 3"></a-gltf-model>
+              <a-gltf-model src="#window2" position="-3 -0.4 4.7" scale="1.5 2 1.5"></a-gltf-model>
+              <a-gltf-model src="#window2" position="3 -0.4 4.7" scale="1.5 2 1.5"></a-gltf-model>
 
-        <a-box position="0 2 5"
-               src="textures/wall.png" 
-               rotation="0 0 0" 
-               color="#F0FFFF"
-               width="4"
-               height="4.9"
-               depth="0.1">
-        </a-box>  
+              <!-- Lighting -->
+              <a-light type="ambient" color="#FFFFFF" intensity="0.5"></a-light>
+              <a-light type="point" position="0 4 0" intensity="1"></a-light>
 
-        <a-box position="-5 2 0" src="textures/wall.png" rotation="0 90 0" color="#F0FFFF" width="10" height="5" depth="0.001"></a-box> 
-        <a-box position="5 2 0" src="textures/wall.png" rotation="0 90 0" color="#F0FFFF" width="10" height="5" depth="0.1"></a-box> 
-        <a-box position="0 4.5 0" src="textures/wall.png" rotation="90 0 0" color="#F0FFFF" width="10" height="10" depth="0.1"></a-box> 
-        <a-box position="0 0 0" rotation="90 0 0" color="#D3D3D3" width="10" height="10" depth="0.1"></a-box> 
+              <!-- Camera -->
+              <a-camera position="0 2 0"></a-camera>
 
-        <!-- Model -->
-        <a-gltf-model src="#deskchair" rotation="0 90 0" position="0 0 -3" scale="0.7 0.7 0.7"></a-gltf-model>
-        
-        <a-gltf-model src="#deskchair" rotation="0 90 0" position="0 0  -1" scale="0.7 0.7 0.7"></a-gltf-model>
-        
-        <a-gltf-model src="#deskchair" rotation="0 90 0" position="0 0 1" scale="0.7 0.7 0.7"></a-gltf-model>
-        
-        <a-gltf-model src="#deskchair" rotation="0 90 0" position="0 0 3" scale="0.7 0.7 0.7"></a-gltf-model>
+       </a-scene>
 
-
-        <a-gltf-model src="#deskchair" rotation="0 90 0" position="-2 0 -3" scale="0.7 0.7 0.7"></a-gltf-model>
-        
-        <a-gltf-model src="#deskchair" rotation="0 90 0" position="-2 0  -1" scale="0.7 0.7 0.7"></a-gltf-model>
-        
-        <a-gltf-model src="#deskchair" rotation="0 90 0" position="-2 0 1" scale="0.7 0.7 0.7"></a-gltf-model>
-        
-        <a-gltf-model src="#deskchair" rotation="0 90 0" position="-2 0 3" scale="0.7 0.7 0.7"></a-gltf-model>
-
-        
-        <a-gltf-model src="#desk" rotation="0 90 0" position="3 0.7 -3" scale="0.5 0.5 0.5"></a-gltf-model>
-        <a-gltf-model src="#profchair" rotation="0 270 0" position="3.9 0.5 -3" scale="1 1 1"></a-gltf-model>
-        
-
-        <a-gltf-model src="#door" rotation="0 270 0" position="-4.9 0 3" scale="0.01 0.01 0.01"></a-gltf-model>
-
-        <a-gltf-model src="#whiteboard" rotation="0 -90 0" position="4.84 1 0" scale="3 3 3"></a-gltf-model>
-        <a-gltf-model src="#window2" position="-3 -0.4 4.7" scale="1.5 2 1.5"></a-gltf-model>
-        <a-gltf-model src="#window2" position="3 -0.4 4.7" scale="1.5 2 1.5"></a-gltf-model>
-
-        <!-- <a-gltf-model src="#window" position="0 2 5" scale="0.7 0.7 1.5"></a-gltf-model> -->
-        <!-- <a-entity obj-model="obj: #desk; mtl: #desk-mtl"></a-entity> -->
-
-
-
-
-        
-        <!-- Lighting -->
-        <a-light type="ambient" color="#FFFFFF" intensity="0.5"></a-light>
-        <!-- <a-light type="point" position="0 4 0" intensity="1"></a-light> -->
-        
-        <!-- Camera -->
-        <a-camera position="0 2 10"></a-camera>
-    </a-scene>
 </body>
+
 </html>
