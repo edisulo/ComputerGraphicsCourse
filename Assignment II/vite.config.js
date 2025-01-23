@@ -5,7 +5,8 @@ export default defineConfig({
         open: true, // Automatically open the app in your browser
         port: 3000, // Set your development server port
     },
+    base: './', // Ensures relative paths for assets
     build: {
-                assetsDir: 'assets', // Directory for assets
-      }
+      outDir: 'dist', // Output folder
+    },
 });
