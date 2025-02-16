@@ -26,7 +26,6 @@ Open index.html in your web browser (a modern browser with WebGL support is reco
 
 # Learning and Experimentation
 During this course, I have experimented with several key concepts in computer graphics, including:
-
 3D Object Manipulation: Loading and controlling 3D objects within a scene.
 Texture Mapping: Applying PDF pages as textures on 3D surfaces.
 Interactive Animations: Enhancing user experience with dynamic, responsive animations.
@@ -37,8 +36,6 @@ These experiments have significantly deepened my understanding of both web devel
 Enhanced User Interface: Refining the UI for better usability.
 Multi-PDF Support: Allowing users to upload and manage multiple PDFs.
 Advanced 3D Effects: Experimenting with more sophisticated lighting, shadows, and animations.
-Credits
-This project was developed as part of my coursework in Computer Graphics. Special thanks to the three.js community for their amazing library and resources.
 
-# License
-This project is licensed under the MIT License. See the LICENSE file for details.
+# Credits
+This project was developed as part of my coursework in Computer Graphics. Special thanks to the three.js community for their amazing library and resources.
