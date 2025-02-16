@@ -1,10 +1,10 @@
-#3D PDF Book Viewer
+# 3D PDF Book Viewer
 This repository contains a project developed as part of my Computer Graphics Course. The project is a 3D PDF Book Viewer where users can upload a PDF file and experience its content in an interactive 3D environment.
 
-Overview
+# Overview
 The main objective of this project was to explore and experiment with modern 3D graphics on the web using three.js. By integrating PDF viewing into a 3D space, I aimed to combine traditional document reading with immersive, interactive 3D visualization.
 
-Features
+# Features
 3D PDF Upload: Upload your own PDF to have it rendered on a 3D object.
 Interactive Navigation: Explore the 3D environment with intuitive controls.
 Dynamic Lighting & Animation: Experience the document with enhanced visual effects, including custom lighting and smooth animations.
@@ -15,15 +15,10 @@ JavaScript: For all the interactive and dynamic functionalities.
 Getting Started
 To run the project locally:
 
-Clone the Repository:
-
-bash
-Copy
+# Clone the Repository:
 git clone https://github.com/yourusername/ComputergraphicsCourse.git
-Navigate to the Project Directory:
 
-bash
-Copy
+# Navigate to the Project Directory:
 cd ComputergraphicsCourse/testProj
 Launch the Application:
 
