@@ -20,11 +20,11 @@ git clone https://github.com/yourusername/ComputergraphicsCourse.git
 
 # Navigate to the Project Directory:
 cd ComputergraphicsCourse/testProj
-Launch the Application:
 
+# Launch the Application:
 Open index.html in your web browser (a modern browser with WebGL support is recommended).
 
-Learning and Experimentation
+# Learning and Experimentation
 During this course, I have experimented with several key concepts in computer graphics, including:
 
 3D Object Manipulation: Loading and controlling 3D objects within a scene.
@@ -33,12 +33,12 @@ Interactive Animations: Enhancing user experience with dynamic, responsive anima
 Performance Optimization: Ensuring smooth rendering even with complex 3D scenes.
 These experiments have significantly deepened my understanding of both web development and 3D graphics programming.
 
-Future Improvements
+# Future Improvements
 Enhanced User Interface: Refining the UI for better usability.
 Multi-PDF Support: Allowing users to upload and manage multiple PDFs.
 Advanced 3D Effects: Experimenting with more sophisticated lighting, shadows, and animations.
 Credits
 This project was developed as part of my coursework in Computer Graphics. Special thanks to the three.js community for their amazing library and resources.
 
-License
+# License
 This project is licensed under the MIT License. See the LICENSE file for details.
