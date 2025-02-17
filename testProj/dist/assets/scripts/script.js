@@ -1,5 +1,5 @@
-import * as THREE from "../node_modules/three";
-import { OrbitControls } from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
+import * as THREE from "./node_modules/three";
+import { OrbitControls } from "./node_modules/three/examples/jsm/controls/OrbitControls.js";
 import {
   Bone,
   BoxGeometry,
@@ -8,11 +8,11 @@ import {
   SkinnedMesh,
   Skeleton,
   Vector3,
-} from "../node_modules/three";
+} from "./node_modules/three";
 
-import * as pdfjsLib from "../node_modules/pdfjs-dist/build/pdf";
+import * as pdfjsLib from "./node_modules/pdfjs-dist/build/pdf";
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
-  "../node_modules/pdfjs-dist/build/pdf.worker.mjs",
+  "./node_modules/pdfjs-dist/build/pdf.worker.mjs",
   import.meta.url
 ).href;
 
