@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "chmod +x node_modules/.bin/vite",
-    "build": "npm install && vite build"
+    "build": "npm install && chmod +x node_modules/.bin/vite && npm run build"
   },
   "devDependencies": {
     "vite": "^5.4.14",
