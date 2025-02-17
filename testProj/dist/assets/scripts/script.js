@@ -112,7 +112,7 @@ class Page {
       this.backTexture = backTexture;
 
       const loader = new THREE.TextureLoader();
-      this.coverRoughness = loader.load("public/assets/pics/page1-back.jpg");
+      this.coverRoughness = loader.load("/assets/pics/page1-back.jpg");
 
       const whiteColor = new Color("white");
       const emissiveColor = new Color("orange");
@@ -343,7 +343,7 @@ fileInput.addEventListener("change", (event) => {
 });
 
 // Optionally, load a default PDF if no file is chosen.
-const defaultPdfUrl = "public/assets/mypdf/projectmanagement.pdf";
+const defaultPdfUrl = "/assets/mypdf/projectmanagement.pdf";
 loadPDF(defaultPdfUrl);
 
 // Lighting.
@@ -365,7 +365,7 @@ scene.add(directionalLight);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-const background = new THREE.TextureLoader().load("public/assets/pics/space2.jpg");
+const background = new THREE.TextureLoader().load("/assets/pics/space2.jpg");
 background.encoding = THREE.sRGBEncoding;
 scene.background = background;
 scene.backgroundIntensity = 0.25;
