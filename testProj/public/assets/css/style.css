@@ -1,9 +1,11 @@
 body {
     margin: 0;
     overflow: hidden;
+    background-image: url("../pics/space2.jpg");
   }
   
   canvas {
     display: block;
   }
+  
   
