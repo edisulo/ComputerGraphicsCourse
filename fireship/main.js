@@ -1,84 +1,95 @@
-import "./style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-const scene = new THREE.Scene();
 
+// First create the scene, camera and renderer
+const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
 );
+const renderer = new THREE.WebGLRenderer();
 
-const renderer = new THREE.WebGLRenderer({
-  canvas: document.querySelector("#bg"),
-});
-
-renderer.shadowMap.enabled = true;
-renderer.setPixelRatio(window.devicePixelRatio);
+// Set the size for renderer and appendChild
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
+document.body.appendChild(renderer.domElement);
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
-const torus = new THREE.Mesh(geometry, material);
-torus.receiveShadow = true;
+// Enable Shadows in the renderer first
+renderer.shadowMap.enabled = true;
+
+camera.position.set(10, 10, 30);
+const controls = new OrbitControls(camera, renderer.domElement);
+
+// Plane Geometry
+const planeGeometry = new THREE.PlaneGeometry(15, 15);
+const planeMaterial = new THREE.MeshBasicMaterial({ color: 0x555555 });
+const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+plane.rotation.x = -Math.PI / 2; // this makes it horizontal
+scene.add(plane);
+
+// Sphere
+const sphereGeometry = new THREE.BoxGeometry(1, 32, 32);
+const sphereMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+sphere.position.set(3, 3, 3);
+scene.add(sphere);
+
+//Torus
+const torusGeometry = new THREE.TorusGeometry(1, 0.4, 16, 100);
+const torusMaterial = new THREE.MeshBasicMaterial({ color: 0x0000ff });
+const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+torus.position.set(3, 1, 0);
 scene.add(torus);
 
-const pointLight = new THREE.PointLight(0xffffff);
-pointLight.position.set(1, 1, 1);
+// Box or Cube
+const boxGeometry = new THREE.BoxGeometry(10, 10, 10);
+const boxMaterial = new THREE.MeshBasicMaterial({ color: 0xffff32 });
+const box = new THREE.Mesh(boxGeometry, boxMaterial);
+box.position.set(1, 1, 1);
+scene.add(box);
+
+ box.castShadow = true;
+ box.receiveShadow = true;
+
+// Ambient Light
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+scene.add(ambientLight);
+
+// Point Light
+const pointLight = new THREE.PointLight(0xffffff, 1);
+pointLight.position.set(0, 5, 5);
 pointLight.castShadow = true;
 scene.add(pointLight);
 
-const ambientLight = new THREE.AmbientLight(0xffffff);
-scene.add(ambientLight);
+// Directional Light
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.4);
+directionalLight.position.set(5, 10, 7);
+directionalLight.castShadow = true;
+scene.add(directionalLight);
 
-const lightHelper = new THREE.PointLightHelper(pointLight);
-const gridHelper = new THREE.GridHelper(200, 5);
-scene.add(lightHelper, gridHelper);
+// SpotLight
+const spotLight = new THREE.SpotLight(0xffffff, 0.8);
+spotLight.position.set(-5, 10, 5);
+spotLight.castShadow = true;
+// Optional: adjust the angle/penumbra to see a soft edge
+spotLight.angle = Math.PI / 6;
+spotLight.penumbra = 0.2;
+scene.add(spotLight);
 
+window.addEventListener("keydown", onkeydown);
+window.addEventListener("keydown", onkeytoggle);
 
-const controls = new OrbitControls(camera, renderer.domElement); // -> OrbitControls is added 
-
-function addStar() {
-  const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-  const star = new THREE.Mesh(geometry, material);
-
-  const [x, y, z] = Array(3)
-    .fill()
-    .map(() => THREE.MathUtils.randFloatSpread(100));
-  star.position.set(x, y, z);
-  scene.add(star);
+function onkeydown(event) {
+  console.log("Key pressed:", event.key);
 }
 
-Array(200).fill().forEach(addStar);
-
-const spaceTexture = new THREE.TextureLoader().load("pics/nasa.jpg");
-scene.background = spaceTexture;
-
-const textureLoader = new THREE.TextureLoader();
-const texture = textureLoader.load("textures/dices.avif");
-const boxGeometry = new THREE.BoxGeometry(1,1,1);
-
-
-const uvs = [
-0.5,0.5,0.75,0.5,0.5,0.75,0.75,0.75,
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
-0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,
-];
-
-boxGeometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs,2));
-
+function onkeytoggle(event) {
+  console.log("Toggle key pressed:", event.key);
+}
+// Animation Function
 function animate() {
   requestAnimationFrame(animate);
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  torus.rotation.z += 0.01;
-
   controls.update();
   renderer.render(scene, camera);
 }
