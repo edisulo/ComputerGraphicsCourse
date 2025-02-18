@@ -1,5 +1,5 @@
-import * as THREE from "/three";
-import { OrbitControls } from "/three/examples/jsm/controls/OrbitControls.js";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import {
   Bone,
   BoxGeometry,
@@ -8,11 +8,11 @@ import {
   SkinnedMesh,
   Skeleton,
   Vector3,
-} from "/three";
+} from "three";
 
-import * as pdfjsLib from "/pdfjs-dist/build/pdf";
+import * as pdfjsLib from "pdfjs-dist/build/pdf";
 pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
-  "/pdfjs-dist/build/pdf.worker.mjs",
+  "pdfjs-dist/build/pdf.worker.mjs",
   import.meta.url
 ).href;
 
